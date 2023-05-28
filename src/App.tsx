@@ -6,7 +6,7 @@ export default function App() {
     const [classes, setClasses] = useState<Class[]>([]);
     const [decimalPlaces, setDecimalPlaces] = useState<number>(0);
 
-    const { calcClasses, toRound } = useStats();
+    const { calcClasses } = useStats();
     const textAreaRef = useRef(null);
     const inputRef = useRef(null);
 
