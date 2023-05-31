@@ -69,7 +69,7 @@ export default function App() {
                                 <th>Classe</th>
                                 <th title="Ponto Médio">PM</th>
                                 <th title="Frequência Absoluta">FA</th>
-                                <th title="Frequência Absoluta Acumulada">FAR</th>
+                                <th title="Frequência Absoluta Acumulada">FAC</th>
                                 <th title="Frequência Relativa">FR</th>
                                 <th title="Frequência Relativa Acumulada">FRA</th>
                             </tr>
@@ -85,7 +85,7 @@ export default function App() {
                                     </td>
                                     <td>{classe.mediumPoint}</td>
                                     <td>{classe.absFrequency}</td>
-                                    <td>{classe.absAcumFrequency.toFixed(decimalPlaces)}%</td>
+                                    <td>{classe.absAcumFrequency}</td>
                                     <td>{(classe.relFrequency * 100).toFixed(decimalPlaces)}%</td>
                                     <td>
                                         {(classe.relAcumFrequency * 100).toFixed(decimalPlaces)}%
