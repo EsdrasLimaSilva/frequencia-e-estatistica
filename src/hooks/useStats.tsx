@@ -79,9 +79,11 @@ export default function useStats() {
 
         //k = number of classes
         const k = toRound(numOfClasses(numbers.length), 0);
+
+        //class amplitude
         let classAmplitude = toRound(totalAmplitude / k, 0);
 
-        console.log(classAmplitude);
+       
 
         const classes: Class[] = [];
 
@@ -105,10 +107,16 @@ export default function useStats() {
                 };
 
                 prevClass = toRound(prevClass + classAmplitude, decimalPlaces);
-            }
 
-            classAmplitude += 1 / Math.pow(10, decimalPlaces);
+
+                console.log(`Menor ${classes[i].lower.value} | Maior: ${classes[i].upper.value}`)
+            }
+            if(classes[classes.length - 1].upper.value < maxValue)
+  {         
+                classAmplitude += 1 / Math.pow(10, decimalPlaces);}
         }
+
+        console.log(classAmplitude);
 
         let frequencyAcumulated = 0;
         let absFrequencyAcumulated = 0;
