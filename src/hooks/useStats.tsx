@@ -1,12 +1,20 @@
 export interface Class {
     lower: { value: number; included: true };
     upper: { value: number; included: boolean };
+    mediumPoint: number;
     absFrequency: number;
+    absAcumFrequency: number;
     relFrequency: number;
     relAcumFrequency: number;
 }
 
 export default function useStats() {
+    /**
+     * 
+     * @param num the number itself
+     * @param decimalPlaces number of decimal places
+     * @returns the rounded number based on the 0.5 critery
+     */
     const toRound = (num: number, decimalPlaces: number) => {
         const calcNumber = num * Math.pow(10, decimalPlaces);
         const decimalDifference = (calcNumber - Math.floor(calcNumber)) * 10;
@@ -77,7 +85,7 @@ export default function useStats() {
 
         const classes: Class[] = [];
 
-        //settng all the classes
+        //settng all the classes ranges
         while (!classes.length || classes[classes.length - 1].upper.value < maxValue) {
             let prevClass = minValue;
 
@@ -89,7 +97,9 @@ export default function useStats() {
                         included:
                             prevClass + classAmplitude == maxValue && i == k - 1 ? true : false,
                     },
+                    mediumPoint: 0,
                     absFrequency: 0,
+                    absAcumFrequency: 0,
                     relFrequency: 0,
                     relAcumFrequency: 0,
                 };
@@ -101,20 +111,27 @@ export default function useStats() {
         }
 
         let frequencyAcumulated = 0;
+        let absFrequencyAcumulated = 0;
 
         //calculating frequency for each class
         classes.forEach((classe) => {
             const absFrequency = calcAbsFrequency(classe, fixedNumbers);
             const relativeFrequency = absFrequency / numbers.length;
             const relativeAcumulatedFrequency = relativeFrequency + frequencyAcumulated;
+            const absoluteAcumulatedFrequency = absFrequency + absFrequencyAcumulated;
+
+            classe.mediumPoint = classe.lower.value + ((classe.upper.value - classe.lower.value) / 2);
             classe.absFrequency = absFrequency;
+            classe.absAcumFrequency = absoluteAcumulatedFrequency;
             classe.relFrequency = relativeFrequency;
             classe.relAcumFrequency = relativeAcumulatedFrequency;
 
             frequencyAcumulated += relativeFrequency;
+            absFrequencyAcumulated += absFrequency;
 
             classe.lower.value /= Math.pow(10, decimalPlaces);
             classe.upper.value /= Math.pow(10, decimalPlaces);
+            classe.mediumPoint /= Math.pow(10, decimalPlaces);
         });
 
         return classes;
