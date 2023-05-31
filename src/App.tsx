@@ -27,10 +27,12 @@ export default function App() {
     };
 
     return (
-        <main className="w-screen min-h-screen text-slate-900 p-4 py-16">
-            <h1 className="font-bold text-2xl text-center text-blue-800 italic">
-                Probabilidade & Estatística
-            </h1>
+        <main className="w-screen min-h-screen text-slate-900 pb-16 bg-gray-50">
+            <header className="bg-white py-8 w-full sh mb-16">
+                <h1 className="font-bold text-2xl text-center text-green-800 italic">
+                    Frequência & Estatística
+                </h1>
+            </header>
 
             <form className="mx-auto w-full max-w-xl my-4" onSubmit={handleSubmit}>
                 <label className="flex flex-col">
