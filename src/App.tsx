@@ -60,6 +60,13 @@ export default function App() {
                 </label>
             </form>
 
+            <div className="max-w-2xl mx-auto">
+                <h2 className="text-lg font-bold text-slate-800 mb-4">Dados ordenados</h2>
+                <ul className="flex flex-row text-xl text-center gap-3 flex-wrap">
+                {data.map(num => <li className="bg-slate-700 text-white font-bold p-2 w-[40px] h-[40px]">{num}</li>)}
+            </ul>
+            </div>
+
             {data.length > 0 ? (
                 <>
                     <table>
