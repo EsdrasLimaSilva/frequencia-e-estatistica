@@ -29,9 +29,9 @@ em seguida basta ir até o endereço:
 http://localhos:5173
 ```
 
-## Aplicação no ar
+## Aplicação 
 
-Aqui está o link para ver o funcionamente da aplicação:
+Aqui está o link para ver o funcionamento da aplicação:
 ```
 https://frequencia-e-estatistica.netlify.app/
 ```
