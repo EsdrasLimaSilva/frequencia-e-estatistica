@@ -1,0 +1,11 @@
+{
+	"enable": true,
+	"arrowParens": "always",
+	"bracketSameLine": false,
+	"semi": true,
+	"tabWidth": 4,
+	"tabsize": 4,
+	"bracketSpacing": true,
+	"printWidth": 100,
+	"useTabs": true
+}

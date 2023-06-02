@@ -108,15 +108,11 @@ export default function useStats() {
 
                 prevClass = toRound(prevClass + classAmplitude, decimalPlaces);
 
-
-                console.log(`Menor ${classes[i].lower.value} | Maior: ${classes[i].upper.value}`)
             }
-            if(classes[classes.length - 1].upper.value < maxValue)
-  {         
-                classAmplitude += 1 / Math.pow(10, decimalPlaces);}
+
+             classAmplitude += 1 / Math.pow(10, decimalPlaces);
         }
 
-        console.log(classAmplitude);
 
         let frequencyAcumulated = 0;
         let absFrequencyAcumulated = 0;
